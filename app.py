@@ -8,7 +8,7 @@ from inference import *
 from utils import *
 
 from huggingface_hub import hf_hub_download
-ckpt_path = hf_hub_download(repo_id="Viglong/Orient-Anything", filename="croplargeEX2/dino_weight.pt", repo_type="model", cache_dir='./', resume_download=True)
+ckpt_path = hf_hub_download(repo_id="Viglong/Orient-Anything", filename="ronormsigma1/dino_weight.pt", repo_type="model", cache_dir='./', resume_download=True)
 print(ckpt_path)
 
 save_path = './'
@@ -16,7 +16,7 @@ device = 'cpu'
 dino = DINOv2_MLP(
                     dino_mode   = 'large',
                     in_dim      = 1024,
-                    out_dim     = 360+180+180+2,
+                    out_dim     = 360+180+360+2,
                     evaluate    = True,
                     mask_dino   = False,
                     frozen_back = False
